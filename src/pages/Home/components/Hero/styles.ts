@@ -9,7 +9,7 @@ export const HeroContainer = styled.section`
         background: fixed;
         width: 100vw;
         object-fit: cover;
-        height: 40rem;
+        height: 36rem;
         z-index: -20;
     }
 `
