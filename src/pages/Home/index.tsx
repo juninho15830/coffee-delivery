@@ -1,9 +1,9 @@
-import { Banner } from "./components/Banner";
+import { Hero } from "./components/Hero";
 
 export function Home() {
     return (
         <main>
-            <Banner />
+            <Hero />
         </main>
     )
 }

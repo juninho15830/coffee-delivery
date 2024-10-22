@@ -4,7 +4,7 @@ import { HeroContainer, HeroContent, InfoContainer } from "./styles";
 import { useTheme } from "styled-components";
 import backgroundHero from "../../../../assets/BackgroundHero.jpg"
 
-export function Banner() {
+export function Hero() {
     const theme = useTheme()
 
     return (
