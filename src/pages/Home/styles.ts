@@ -67,3 +67,14 @@ export const InfoContainer = styled.div`
         padding: 0.5rem;
     }
 `
+export const CardsContainer = styled.section`
+    margin: 2rem auto;
+    max-width: 72rem;
+    padding: 0 1rem;
+
+    h2 {
+        font-family: "Baloo 2", sans-serif;
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+`
