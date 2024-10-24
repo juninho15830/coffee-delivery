@@ -26,10 +26,13 @@ export const HeaderContainer = styled.header`
             border: none;
             border-radius: 6px;
             height: 2.5rem;
-        }
 
-        button:hover {
-            cursor: pointer;
+            &:hover {
+                cursor: pointer;
+                background-color: ${props =>props.theme.colors['purple-500']};
+                color: ${props =>props.theme.colors['purple-100']};
+                transition: 0.4s;
+            }
         }
     }
 `
@@ -40,6 +43,18 @@ export const CartContainer = styled.a`
     border-radius: 6px;
     height: 2.5rem;
     position: relative;
+
+    &:hover {
+        background-color: ${props =>props.theme.colors['yellow-900']};
+        color: ${props =>props.theme.colors['yellow-100']};
+        transition: 0.4s;
+
+        span {
+            color:  ${props =>props.theme.colors['yellow-900']};
+            background-color: ${props =>props.theme.colors['yellow-100']};
+            transition: 0.4s;
+        }
+    }
 
     span {
         display: flex;

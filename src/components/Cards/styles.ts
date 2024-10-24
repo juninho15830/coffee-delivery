@@ -4,18 +4,18 @@ export const CardContainer = styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5rem;
     align-items: center;
     text-align: center;
-    padding: 8rem 1rem 1rem;
-    height: 21rem;
+    padding: 7rem 1rem 1rem;
+    height: 19rem;
     width: 16rem;
     background-color: ${props =>props.theme.colors['gray-200']};
     border-radius: 8px 30px 8px 30px;
     
     > img {
         position: absolute;
-        top: -5%;
+        top: -6%;
     }
 
     > span {
@@ -38,6 +38,7 @@ export const CardContainer = styled.div`
 `
 
 export const ControlContainer = styled.div`
+    padding-top: 0.5rem;
     display: flex;
     margin-top: 1rem;
     gap: 0.5rem;
