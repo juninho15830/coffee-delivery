@@ -1,5 +1,5 @@
-import { ShoppingCart } from "@phosphor-icons/react";
-import { CardContainer, ControlContainer } from "./styles";
+import { Minus, Plus, ShoppingCart } from "@phosphor-icons/react";
+import { CardContainer, ControlContainer, CounterContainer } from "./styles";
 import coofeeTrad from "../../assets/coffee-trad.png";
 
 export function Cards() {
@@ -15,7 +15,15 @@ export function Cards() {
             <ControlContainer>
                 <p>R$ <span>9,90</span></p>
                 <div>
-                    <input type="number" />
+                    <CounterContainer>
+                        <button>
+                            <Minus size={14} />
+                        </button>
+                        <span>1</span>
+                        <button>
+                            <Plus size={14} />
+                        </button>
+                    </CounterContainer>
                     <button>
                         <ShoppingCart size={22} weight="fill" />
                     </button>

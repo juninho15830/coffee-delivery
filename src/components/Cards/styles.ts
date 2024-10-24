@@ -8,7 +8,7 @@ export const CardContainer = styled.div`
     align-items: center;
     text-align: center;
     padding: 8rem 1rem 1rem;
-    height: 20rem;
+    height: 21rem;
     width: 16rem;
     background-color: ${props =>props.theme.colors['gray-200']};
     border-radius: 8px 30px 8px 30px;
@@ -39,6 +39,7 @@ export const CardContainer = styled.div`
 
 export const ControlContainer = styled.div`
     display: flex;
+    margin-top: 1rem;
     gap: 0.5rem;
 
     p > span {
@@ -57,7 +58,7 @@ export const ControlContainer = styled.div`
         width: 5.5rem;
     }
 
-    div > button {
+    > div > button {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -65,12 +66,46 @@ export const ControlContainer = styled.div`
         background-color: ${props =>props.theme.colors['purple-900']};
         padding: 0.5rem;
         border-radius: 6px;
-        height: 2.5rem;
+        border: none;
+
+
+        &:hover {
+            cursor: pointer;
+            background-color: ${props =>props.theme.colors['purple-500']};
+            transition: 0.2s;
+        }
+    }
+` 
+
+export const CounterContainer = styled.div`
+    padding: 0.5rem;
+    background-color: ${({ theme }) => theme.colors['gray-500']};
+    border-radius: 6px;
+    margin-left: 1.5rem;
+    display: flex;
+    gap: 0.25rem;
+
+    button {
+        background-color: transparent;
+        display: flex;
+        align-items: center;
         border: none;
     }
 
-    div > button:hover {
-        cursor: pointer;
+    button {
+        color: ${({ theme }) => theme.colors['purple-500']};
 
+        transition: all 0.2s;
+
+        &:hover {
+        color: ${({ theme }) => theme.colors['purple-900']};
+        cursor: pointer;
+        }
     }
-` 
+
+    span {
+        display: flex;
+        align-items: center;
+        color: ${({ theme }) => theme.colors['gray-800']};
+    }
+`
