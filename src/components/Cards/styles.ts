@@ -8,7 +8,7 @@ export const CardContainer = styled.div`
     align-items: center;
     text-align: center;
     padding: 8rem 1rem 1rem;
-    height: 19.5rem;
+    height: 20rem;
     width: 16rem;
     background-color: ${props =>props.theme.colors['gray-200']};
     border-radius: 8px 30px 8px 30px;
@@ -37,7 +37,7 @@ export const CardContainer = styled.div`
     }
 `
 
-export const ValueContainer = styled.div`
+export const ControlContainer = styled.div`
     display: flex;
     gap: 0.5rem;
 
@@ -54,14 +54,23 @@ export const ValueContainer = styled.div`
     }
 
     input {
-        width: 3rem;
+        width: 5.5rem;
     }
 
-    div > button > img {
-        color: ${props =>props.theme.colors['yellow-900']};
-        background-color: ${props =>props.theme.colors['yellow-100']};
+    div > button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: ${props =>props.theme.colors.white};
+        background-color: ${props =>props.theme.colors['purple-900']};
         padding: 0.5rem;
         border-radius: 6px;
         height: 2.5rem;
+        border: none;
+    }
+
+    div > button:hover {
+        cursor: pointer;
+
     }
 ` 
