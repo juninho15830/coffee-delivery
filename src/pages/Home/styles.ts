@@ -35,7 +35,6 @@ export const HeroContent = styled.article`
     }
 
     article > div:last-child {
-        display: flex;
         margin-top: 4rem;
         max-width: 36rem;
         display: grid;
@@ -44,6 +43,31 @@ export const HeroContent = styled.article`
 
         div {
             display: flex;
+        }
+    }
+
+    @media (max-width: 1151px) {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 3rem;
+
+        h1 {
+            font-size: 3rem;
+            font-family: "Baloo 2", sans-serif;
+            line-height: 3.75rem;
+            max-width: 30rem;
+        }
+
+        img {
+            margin-top: 3rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        > img {
+            margin-top: 3rem;
+            width: 40rem;
+            max-width: 20rem;
         }
     }
 `
@@ -66,6 +90,11 @@ export const InfoContainer = styled.div`
         border-radius: 100%;
         padding: 0.5rem;
     }
+
+    @media (max-width: 480px) {
+        display: flex;
+        flex-wrap: wrap;
+    }
 `
 export const CardsContainer = styled.section`
     margin: 2rem auto;
@@ -76,5 +105,13 @@ export const CardsContainer = styled.section`
         font-family: "Baloo 2", sans-serif;
         font-size: 2rem;
         margin-bottom: 3rem;
+    }
+
+    article {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 5rem;
+        column-gap: 2rem;
+        max-width: 72rem;
     }
 `

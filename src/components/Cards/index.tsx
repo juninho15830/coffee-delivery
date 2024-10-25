@@ -1,21 +1,29 @@
 import { Minus, Plus, ShoppingCart } from "@phosphor-icons/react";
 import { CardContainer, ControlContainer, CounterContainer } from "./styles";
-import { Coffee } from "../../@types/home";
 
-interface CoffeesProps {
-    coffees: Coffee[]
+type CoffeesProps = {
+    coffee: {
+      id: string
+      title: string
+      description: string
+      tags: string[]
+      price: number
+      image: string
+    }
 }
 
-export function Cards({ coffees }: CoffeesProps) {
+export function Cards({ coffee }: CoffeesProps) {
     return (
         <CardContainer>
-            <img src={coffees} alt={coffee.title} />
+            <img src={coffee.image} alt={coffee.title} />
             
-            {coffee.tags.map((tag) => (
-                <span key={tag}>{tag}</span>
-            ))}
-            <h3>Expresso Tradicional</h3>
-            <p>O tradicional café feito com água quente e grãos moídos</p>
+            <div>
+                {coffee.tags.map((tag) => (
+                        <span key={tag}>{tag}</span>
+                ))}
+            </div>
+            <h3>{coffee.title}</h3>
+            <p>{coffee.description}</p>
             
 
             <ControlContainer>

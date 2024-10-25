@@ -4,7 +4,7 @@ import { useTheme } from "styled-components";
 import banner from "../../assets/Banner.png";
 import backgroundHero from "../../assets/BackgroundHero.jpg";
 import { Cards } from "../../components/Cards";
-import { Coffees } from "../../../data.ts";
+import { coffees } from "../../../data.json";
 
 export function Home() {
     const theme = useTheme()
@@ -72,7 +72,7 @@ export function Home() {
         <CardsContainer>
             <h2>Nossos cafés</h2>
             <article>
-                {Coffees.map((coffee) => (
+                {coffees.map((coffee) => (
                     <Cards key={coffee.id} coffee={coffee}/>
                 ))}
             </article>

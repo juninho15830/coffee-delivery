@@ -18,7 +18,12 @@ export const CardContainer = styled.div`
         top: -7%;
     }
 
-    > span {
+    > div {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    > div > span {
         font-size: 0.625rem;
         color: ${props =>props.theme.colors['yellow-900']};
         background-color: ${props =>props.theme.colors['yellow-100']};
@@ -40,8 +45,15 @@ export const CardContainer = styled.div`
 export const ControlContainer = styled.div`
     padding-top: 0.5rem;
     display: flex;
+
     margin-top: 1rem;
     gap: 0.5rem;
+
+    p {
+        display: flex;
+        gap: 0.25rem;
+        align-items: baseline;
+    }
 
     p > span {
         font-family: "Baloo 2", sans-serif;
