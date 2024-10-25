@@ -13,7 +13,7 @@ export function Header() {
                 </button>
                 <CartContainer rel="stylesheet" href="/checkout" title="Meu carrinho">
                     <ShoppingCart size={22} weight="fill" />
-                    <span>1</span>
+                    <span>10</span>
                 </CartContainer>
             </div>
         </HeaderContainer>

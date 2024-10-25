@@ -1,5 +1,9 @@
+import { CheckoutContainer } from "./styles";
+
 export function Checkout() {
     return (
-        <h1>checkout</h1>
+        <CheckoutContainer>
+            <h1>checkout</h1>
+        </CheckoutContainer>
     )
 }

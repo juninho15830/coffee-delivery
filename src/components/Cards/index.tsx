@@ -19,7 +19,7 @@ export function Cards({ coffee }: CoffeesProps) {
             
             <div>
                 {coffee.tags.map((tag) => (
-                        <span key={tag}>{tag.toUpperCase()}</span>
+                    <span key={tag}>{tag.toUpperCase()}</span>
                 ))}
             </div>
             <h3>{coffee.title}</h3>
