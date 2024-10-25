@@ -19,7 +19,7 @@ export function Cards({ coffee }: CoffeesProps) {
             
             <div>
                 {coffee.tags.map((tag) => (
-                        <span key={tag}>{tag}</span>
+                        <span key={tag}>{tag.toUpperCase()}</span>
                 ))}
             </div>
             <h3>{coffee.title}</h3>
@@ -38,7 +38,7 @@ export function Cards({ coffee }: CoffeesProps) {
                             <Plus size={14} />
                         </button>
                     </CounterContainer>
-                    <button>
+                    <button title="Adicionar ao carrinho">
                         <ShoppingCart size={22} weight="fill" />
                     </button>
                 </div>

@@ -9,6 +9,15 @@ export const HeaderContainer = styled.header`
     margin: auto;
     padding: 0 1rem;
 
+    > a {
+        transition-duration: 0.3s;
+    }
+
+    > a:hover {
+        transform: scale(110%);
+
+    }
+
     div {
         display: flex;
         align-items: center;

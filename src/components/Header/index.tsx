@@ -5,13 +5,13 @@ import { CartContainer, HeaderContainer } from "./styles"
 export function Header() {
     return (
         <HeaderContainer>
-            <a href="/"><img src={logo} alt="" /></a>
+            <a href="/"><img src={logo} alt="Logo do site" title="Home" /></a>
             <div>
                 <button>
                     <MapPin size={22} weight="fill" />
                     <span>Pindorama, SP</span>
                 </button>
-                <CartContainer rel="stylesheet" href="/checkout">
+                <CartContainer rel="stylesheet" href="/checkout" title="Meu carrinho">
                     <ShoppingCart size={22} weight="fill" />
                     <span>1</span>
                 </CartContainer>
