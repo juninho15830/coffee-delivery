@@ -1,19 +1,25 @@
 import { Minus, Plus, ShoppingCart } from "@phosphor-icons/react";
 import { CardContainer, ControlContainer, CounterContainer } from "./styles";
-import coofeeTrad from "../../assets/coffee-trad.png";
+import { Coffee } from "../../@types/home";
 
-export function Cards() {
+interface CoffeesProps {
+    coffees: Coffee[]
+}
+
+export function Cards({ coffees }: CoffeesProps) {
     return (
         <CardContainer>
-            <img src={coofeeTrad} alt="" />
+            <img src={coffees} alt={coffee.title} />
             
-            <span>TRADICIONAL</span>
+            {coffee.tags.map((tag) => (
+                <span key={tag}>{tag}</span>
+            ))}
             <h3>Expresso Tradicional</h3>
             <p>O tradicional café feito com água quente e grãos moídos</p>
             
 
             <ControlContainer>
-                <p>R$ <span>9,90</span></p>
+                <p>R$ <span>{coffee.price.toFixed(2)}</span></p>
                 <div>
                     <CounterContainer>
                         <button>

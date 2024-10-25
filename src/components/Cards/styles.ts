@@ -15,7 +15,7 @@ export const CardContainer = styled.div`
     
     > img {
         position: absolute;
-        top: -6%;
+        top: -7%;
     }
 
     > span {
