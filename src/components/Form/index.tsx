@@ -1,28 +1,56 @@
-import { Minus, Plus, Trash } from "@phosphor-icons/react"
-import { CounterContainer } from "./styles"
+import { CurrencyDollar, MapPinLine, Minus, Plus, Trash } from "@phosphor-icons/react"
+import {  CampInputsContainer, CounterContainer, FormContainer, InputsContainer } from "./styles"
 import cafeTradicional from "/images/coffees/expresso.png"
+import { useTheme } from "styled-components"
  
 export function CheckoutForm() {
+    const theme = useTheme()
 
     return (
         <section>
-           <form action="">
-               <div>
+           <FormContainer action="">
+               <InputsContainer>
                     <span>Complete seu pedido</span>
-                    <div>
-                        <input type="number" />
-                        <input type="text" />
+                    <CampInputsContainer>
                         <div>
-                            <input type="number" />
-                            <input type="text" />
+                            <MapPinLine 
+                                size={25}
+                                color={theme.colors['yellow-900']}
+                            />
+                            <div>
+                                <span>Endereço de entrega</span>
+                                <p>Informe o endereço onde deseja receber seu pedido</p>
+                            </div>
+                        </div>
+                        <input type="number" placeholder="CEP"/>
+                        <input type="text" placeholder="Rua"/>
+                        <div>
+                            <input type="number" placeholder="Número"/>
+                            <input type="text" placeholder="Complemento"/>
                         </div>
                         <div>
-                            <input type="text" />
-                            <input type="text" />
-                            <input type="text" />
+                            <input type="text" placeholder="Bairro"/>
+                            <input type="text" placeholder="Cidade"/>
+                            <input type="text" placeholder="UF"/>
                         </div>
-                    </div>
-               </div>
+                    </CampInputsContainer>
+                    <CampInputsContainer>
+                        <div>
+                            <CurrencyDollar size={25} 
+                                color={theme.colors['purple-500']}
+                            />
+                            <div>
+                                <span>Pagamento</span>
+                                <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
+                            </div>
+                        </div>
+                        <div>
+                            <button>cartao credito</button>
+                            <button>cartao debito</button>
+                            <button>pix</button>
+                        </div>
+                    </CampInputsContainer>
+               </InputsContainer>
                <div>
                     <span>Cafés selecionados</span>
                     <div>
@@ -60,15 +88,7 @@ export function CheckoutForm() {
                         </div>
                     </div>
                </div>
-               <div>
-                    <div>
-                        <p>Pagamento</p>
-                        <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
-                    </div>
-                    <div>
-                    </div>
-               </div>
-           </form>
+           </FormContainer>
         </section>
     )
 }
