@@ -1,8 +1,8 @@
 import { Coffee, Package, ShoppingCart, Timer } from "@phosphor-icons/react";
 import { CardsContainer, HeroContainer, HeroContent, InfoContainer } from "./styles";
 import { useTheme } from "styled-components";
-import banner from "../../assets/Banner.png";
-import backgroundHero from "../../assets/BackgroundHero.jpg";
+import banner from "../../assets/banner.png";
+import backgroundHero from "../../assets/background-hero.jpg";
 import { Cards } from "../../components/Cards";
 import { coffees } from "../../../data.json";
 
