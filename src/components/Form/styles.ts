@@ -38,7 +38,44 @@ export const AddressHeadingContainer = styled.div`
 `
 
 export const AddressForm = styled.div`
-    display: block;
+    .cep {
+        grid-area: cep;
+    }
+
+    .rua {
+        grid-area: rua;
+    }
+
+    .numero {
+        grid-area: numero;
+    }
+
+    .complemento {
+        grid-area: complemento;
+    }
+
+    .bairro {
+        grid-area: bairro;
+    }
+
+    .cidade {
+        grid-area: cidade;
+    }
+
+    .uf {
+        grid-area: uf;
+    }
+
+
+
+    display: grid;
+    grid-template-areas:
+        'cep . . '
+        'rua rua rua'
+        'numero complemento complemento'
+        'bairro cidade uf';
+    grid-template-columns: 12.5rem 1fr 3.5rem;
+    grid-gap: 1rem 0.875rem;
 `
 
 export const CounterContainer = styled.div`

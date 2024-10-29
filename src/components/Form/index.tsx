@@ -23,7 +23,7 @@ export function CheckoutForm() {
                             </div>
                         </AddressHeadingContainer>
                         <AddressForm>
-                            <input id="cep" type="number" placeholder="CEP"/>
+                            <input className="cep" type="number" placeholder="CEP"/>
                             <input id="rua" type="text" placeholder="Rua"/>
                             <input id="numero" type="number" placeholder="Número"/>
                             <input id="complemento" type="text" placeholder="Complemento"/>
