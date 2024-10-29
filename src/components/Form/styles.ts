@@ -21,10 +21,15 @@ export const AddressContainer = styled.div`
     flex-direction: column;
     max-width: 40rem;
     width: 100%;
-    padding: 2rem;
+    padding: 2.5rem;
+    margin-top: 0.5rem;
     gap: 1rem;
     background-color: ${({ theme }) => theme.colors['gray-200']};
     border-radius: 6px;
+
+    @media (max-width: 640px) {
+        padding: 1.5rem;
+    }
 `
 
 export const AddressHeadingContainer = styled.div`
@@ -38,44 +43,75 @@ export const AddressHeadingContainer = styled.div`
 `
 
 export const AddressForm = styled.div`
-    .cep {
-        grid-area: cep;
-    }
+  display: grid;
+  grid-template-areas:
+    "cep . ."
+    "rua rua rua"
+    "numero complemento complemento"
+    "bairro cidade uf";
+  grid-template-columns: 12.5rem 1fr 3.5rem;
+  gap: 1rem 1rem;
 
-    .rua {
-        grid-area: rua;
-    }
+  #cep {
+    grid-area: cep;
+    width: 100%;
+  }
 
-    .numero {
-        grid-area: numero;
-    }
+  #rua {
+    grid-area: rua;
+    width: 100%;
+  }
 
-    .complemento {
-        grid-area: complemento;
-    }
+  #numero {
+    grid-area: numero;
+    width: 100%;
+  }
 
-    .bairro {
-        grid-area: bairro;
-    }
+  #complemento {
+    grid-area: complemento;
+    width: 100%;
+  }
 
-    .cidade {
-        grid-area: cidade;
-    }
+  #bairro {
+    grid-area: bairro;
+    width: 100%;
+  }
 
-    .uf {
-        grid-area: uf;
-    }
+  #cidade {
+    grid-area: cidade;
+    width: 100%;
+  }
 
+  #uf {
+    grid-area: uf;
+    width: 100%;
+  }
 
+  input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid ${({ theme }) => theme.colors['gray-400']};
+    background-color: ${({ theme }) => theme.colors['gray-300']};
+  }
 
+  @media (max-width: 640px) {
     display: grid;
     grid-template-areas:
-        'cep . . '
-        'rua rua rua'
-        'numero complemento complemento'
-        'bairro cidade uf';
-    grid-template-columns: 12.5rem 1fr 3.5rem;
-    grid-gap: 1rem 0.875rem;
+        "cep uf"
+        "rua rua"
+        "numero complemento"
+        "bairro bairro"
+        "cidade cidade"
+        ;
+    grid-template-columns: 12.5rem 1fr ;
+    gap: 0.75rem 1rem;
+  }
+
+  @media (max-width: 400px) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
 `
 
 export const CounterContainer = styled.div`
