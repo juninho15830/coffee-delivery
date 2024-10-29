@@ -4,6 +4,7 @@ export const FormContainer = styled.form`
     display: flex;
     flex-wrap: wrap;
     max-width: 72rem;
+    width: 100%;
     margin: auto;
     padding: 0 1rem;
     gap: 1.5rem;
@@ -14,54 +15,30 @@ export const FormContainer = styled.form`
         font-weight: bold;
     }
 `
-export const InputsContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 40rem;
-`
 
-export const CampInputsContainer = styled.div`
+export const AddressContainer = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 1rem;
     max-width: 40rem;
+    width: 100%;
     padding: 2rem;
+    gap: 1rem;
     background-color: ${({ theme }) => theme.colors['gray-200']};
     border-radius: 6px;
+`
 
-    > div {
-        display: flex;
-        gap: 0.5rem;
-        margin-bottom: 0.75rem;
-    }
-
-    > div:last-child {
-        margin-bottom: 0;
-    }
-
-    > div > div {
-        display: flex;
-        flex-direction: column;
-        padding-top: 0.25rem;
-        gap: 0.5rem;
-    }
-
-    span {
-        color: ${({ theme }) => theme.colors['gray-800']};
-    }
+export const AddressHeadingContainer = styled.div`
+    display: flex;
+    gap: 1rem;
+    line-height: 1.5rem;
 
     p {
         font-size: 0.875rem;
     }
+`
 
-    button {
-        padding: 1rem;
-        font-size: 0.875rem;
-        border-radius: 6px;
-        border: none;
-        background-color: ${({ theme }) => theme.colors['gray-400']};
-    }
+export const AddressForm = styled.div`
+    display: block;
 `
 
 export const CounterContainer = styled.div`

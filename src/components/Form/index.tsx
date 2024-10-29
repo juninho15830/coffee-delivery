@@ -1,5 +1,5 @@
 import { CurrencyDollar, MapPinLine, Minus, Plus, Trash } from "@phosphor-icons/react"
-import {  CampInputsContainer, CounterContainer, FormContainer, InputsContainer } from "./styles"
+import { AddressContainer, AddressForm, AddressHeadingContainer, CounterContainer, FormContainer } from "./styles"
 import cafeTradicional from "/images/coffees/expresso.png"
 import { useTheme } from "styled-components"
  
@@ -9,10 +9,10 @@ export function CheckoutForm() {
     return (
         <section>
            <FormContainer action="">
-               <InputsContainer>
+               <div>
                     <span>Complete seu pedido</span>
-                    <CampInputsContainer>
-                        <div>
+                    <AddressContainer>
+                        <AddressHeadingContainer>
                             <MapPinLine 
                                 size={25}
                                 color={theme.colors['yellow-900']}
@@ -21,20 +21,18 @@ export function CheckoutForm() {
                                 <span>Endereço de entrega</span>
                                 <p>Informe o endereço onde deseja receber seu pedido</p>
                             </div>
-                        </div>
-                        <input type="number" placeholder="CEP"/>
-                        <input type="text" placeholder="Rua"/>
-                        <div>
-                            <input type="number" placeholder="Número"/>
-                            <input type="text" placeholder="Complemento"/>
-                        </div>
-                        <div>
-                            <input type="text" placeholder="Bairro"/>
-                            <input type="text" placeholder="Cidade"/>
-                            <input type="text" placeholder="UF"/>
-                        </div>
-                    </CampInputsContainer>
-                    <CampInputsContainer>
+                        </AddressHeadingContainer>
+                        <AddressForm>
+                            <input id="cep" type="number" placeholder="CEP"/>
+                            <input id="rua" type="text" placeholder="Rua"/>
+                            <input id="numero" type="number" placeholder="Número"/>
+                            <input id="complemento" type="text" placeholder="Complemento"/>
+                            <input id="bairro" type="text" placeholder="Bairro"/>
+                            <input id="cidade" type="text" placeholder="Cidade"/>
+                            <input id="uf" type="text" placeholder="UF"/>
+                        </AddressForm>
+                    </AddressContainer>
+                    <div>
                         <div>
                             <CurrencyDollar size={25} 
                                 color={theme.colors['purple-500']}
@@ -49,8 +47,8 @@ export function CheckoutForm() {
                             <button>cartao debito</button>
                             <button>pix</button>
                         </div>
-                    </CampInputsContainer>
-               </InputsContainer>
+                    </div>
+               </div>
                <div>
                     <span>Cafés selecionados</span>
                     <div>
