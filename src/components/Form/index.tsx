@@ -14,9 +14,11 @@ import {
     AddressContainer,
     AddressForm,
     AddressHeadingContainer,
+    ButtonRemoverContainer,
     ButtonsCheckContainer,
     CheckContainer,
     CheckoutContainer,
+    ConfirmContainer,
     CounterContainer,
     FormContainer,
     InfoContainer,
@@ -98,16 +100,16 @@ export function CheckoutForm() {
                                                 <Plus size={14} />
                                             </button>
                                         </CounterContainer>
-                                        <button>
-                                            <Trash size={16} weight="thin" />
-                                            <span>Remover</span>
-                                        </button>
+                                        <ButtonRemoverContainer>
+                                            <Trash size={16} color={theme.colors['purple-500']}/>
+                                            <span>REMOVER</span>
+                                        </ButtonRemoverContainer>
                                     </ButtonsCheckContainer>
                                 </div>
                             </div>
                             <span>R$ 9,90</span>
                         </CheckContainer>
-                        <div>
+                        <ConfirmContainer>
                             <div>
                                 <p>Total de itens</p>
                                 <p>R$ 29,70</p>
@@ -120,8 +122,8 @@ export function CheckoutForm() {
                                 <span>Total</span>
                                 <span>R$ 33,60</span>
                             </div>
-                            <button>Confirmar pedido</button>
-                        </div>
+                            <button>CONFIRMAR PEDIDO</button>
+                        </ConfirmContainer>
                     </InfoContainer>
                </div>
            </FormContainer>

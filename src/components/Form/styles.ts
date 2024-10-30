@@ -59,7 +59,7 @@ export const AddressForm = styled.div`
     "rua rua rua"
     "numero complemento complemento"
     "bairro cidade uf";
-  grid-template-columns: 14rem 16rem 3.5rem;
+  grid-template-columns: 14rem 15rem 3.5rem;
   gap: 1rem 1rem;
 
   #cep {
@@ -125,13 +125,80 @@ export const AddressForm = styled.div`
   }
 `
 
+export const PaymentContainer = styled(AddressContainer)``
+
+export const PaymentHeadingContainer = styled(AddressHeadingContainer)``
+
+export const PaymentButtonsContainer = styled.div`
+    display: flex;
+    gap: 0.5rem;
+
+    > button {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 1rem;
+        font-size: 0.75rem;
+        border: solid 1px transparent;
+        border-radius: 4px;
+        background-color: ${({ theme }) => theme.colors['gray-400']};
+        transition: all 0.2s;
+
+        &:hover {
+            cursor: pointer;
+            background-color: ${({ theme }) => theme.colors['purple-100']};
+            border: solid 1px ${({ theme }) => theme.colors['purple-500']};
+        }
+    }
+`
+
+export const InfoContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    max-width: 28rem;
+    padding: 2.5rem;
+    gap: 2rem;
+    background-color: ${({ theme }) => theme.colors['gray-200']};
+    border-radius: 6px 36px;
+`
+
+export const CheckContainer = styled.div`
+    display: flex;
+    align-items: top;
+    gap: 3rem;
+    border-bottom: 1px solid ${({ theme }) => theme.colors['gray-400']};
+    padding-bottom: 2rem;
+
+   > div {
+    display: flex;
+    gap: 1rem;
+   }
+
+   > div > div {
+    display: flex;
+    flex-direction: column;
+    
+    gap: 0.5rem;
+   }
+
+   > span {
+    font-weight: bold;
+   }
+`
+
+export const ButtonsCheckContainer = styled.div`
+    display: flex;
+    gap: 0.5rem;
+`
+
 export const CounterContainer = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 0.5rem;
-    background-color: ${({ theme }) => theme.colors['gray-500']};
+    background-color: ${({ theme }) => theme.colors['gray-400']};
     border-radius: 6px;
-    margin-left: 1.5rem;
     display: flex;
     gap: 0.25rem;
     width: 4.5rem;
@@ -160,62 +227,55 @@ export const CounterContainer = styled.div`
         color: ${({ theme }) => theme.colors['gray-800']};
     }
 `
-export const PaymentContainer = styled(AddressContainer)``
 
-export const PaymentHeadingContainer = styled(AddressHeadingContainer)``
+export const ButtonRemoverContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: ${({ theme }) => theme.colors['gray-400']};
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  transition: all 0.2s;
 
-export const PaymentButtonsContainer = styled.div`
-    display: flex;
-    gap: 0.5rem;
-
-    > button {
-        display: flex;
-        gap: 0.5rem;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        padding: 1rem;
-        font-size: 0.75rem;
-        border: none;
-        border-radius: 4px;
-        background-color: ${({ theme }) => theme.colors['gray-400']};
-
-        &:hover {
-            cursor: pointer;
-            background-color: ${({ theme }) => theme.colors['gray-500']};
-        }
-    }
+  &:hover {
+    cursor: pointer;
+    background-color: ${({ theme }) => theme.colors['gray-500']};
+  }
 `
 
-export const InfoContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    max-width: 28rem;
-    padding: 2.5rem;
-    gap: 2rem;
-    background-color: ${({ theme }) => theme.colors['gray-200']};
-    border-radius: 6px;
-`
+export const ConfirmContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 
-export const CheckContainer = styled.div`
+  > div {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    justify-content: space-between;
+  }
 
-   > div {
-    display: flex;
-    gap: 1rem;
-   }
+  > div > p {
+    font-size: 0.875rem;
+  }
 
-   > div > div {
-    display: flex;
-    flex-direction: column;
-    
-    gap: 0.5rem;
-   }
-`
+  > div > span {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
 
-export const ButtonsCheckContainer = styled.div`
-    display: flex;
-    gap: 0.5rem;
+  button {
+    font-size: 0.875rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 4px;
+    border: none;
+    background-color: ${({ theme }) => theme.colors['yellow-500']};
+    color: ${({ theme }) => theme.colors.white};
+    transition: all 0.2s;
+
+    &:hover {
+    cursor: pointer;
+    background-color: ${({ theme }) => theme.colors['yellow-900']};
+  }
+  }
 `
