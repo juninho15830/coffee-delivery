@@ -210,6 +210,7 @@ export const CheckContainer = styled.div`
    > div > div {
     display: flex;
     flex-direction: column;
+    
     gap: 0.5rem;
    }
 `

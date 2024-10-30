@@ -67,15 +67,15 @@ export function CheckoutForm() {
                         <PaymentButtonsContainer>
                             <button>
                                 <CreditCard size={20} color={theme.colors['purple-500']}/>
-                                <p>CARTÃO DE CRÉDITO</p>
+                                <span>CARTÃO DE CRÉDITO</span>
                             </button>
                             <button>
                                 <Bank size={20} color={theme.colors['purple-500']}/>
-                                <p>CARTÃO DE DÉBITO</p>
+                                <span>CARTÃO DE DÉBITO</span>
                             </button>
                             <button>
                                 <Money size={20} color={theme.colors['purple-500']}/>
-                                <p>DINHEIRO</p>
+                                <span>DINHEIRO</span>
                             </button>
                         </PaymentButtonsContainer>
                     </PaymentContainer>
@@ -98,7 +98,10 @@ export function CheckoutForm() {
                                                 <Plus size={14} />
                                             </button>
                                         </CounterContainer>
-                                        <Trash size={32} weight="thin" />
+                                        <button>
+                                            <Trash size={16} weight="thin" />
+                                            <span>Remover</span>
+                                        </button>
                                     </ButtonsCheckContainer>
                                 </div>
                             </div>
