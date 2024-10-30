@@ -202,16 +202,19 @@ export const CheckContainer = styled.div`
     align-items: center;
     gap: 0.5rem;
 
-    > div {
-        display: flex;
-        flex-direction: column;
-    }
+   > div {
+    display: flex;
+    gap: 1rem;
+   }
 
-    > div > div {
-        display: flex;
-        flex-direction: row;
-    }
+   > div > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+   }
 `
 
 export const ButtonsCheckContainer = styled.div`
+    display: flex;
+    gap: 0.5rem;
 `
