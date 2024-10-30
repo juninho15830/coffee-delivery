@@ -1,13 +1,35 @@
-import { CurrencyDollar, MapPinLine, Minus, Plus, Trash } from "@phosphor-icons/react"
-import { AddressContainer, AddressForm, AddressHeadingContainer, CounterContainer, FormContainer } from "./styles"
 import cafeTradicional from "/images/coffees/expresso.png"
 import { useTheme } from "styled-components"
+import {
+    Bank,
+    CreditCard,
+    CurrencyDollar,
+    MapPinLine,
+    Minus,
+    Money,
+    Plus,
+    Trash
+} from "@phosphor-icons/react"
+import { 
+    AddressContainer,
+    AddressForm,
+    AddressHeadingContainer,
+    ButtonsCheckContainer,
+    CheckContainer,
+    CheckoutContainer,
+    CounterContainer,
+    FormContainer,
+    InfoContainer,
+    PaymentButtonsContainer,
+    PaymentContainer,
+    PaymentHeadingContainer 
+} from "./styles"
  
 export function CheckoutForm() {
     const theme = useTheme()
 
     return (
-        <section>
+        <CheckoutContainer>
            <FormContainer action="">
                <div>
                     <span>Complete seu pedido</span>
@@ -23,7 +45,7 @@ export function CheckoutForm() {
                             </div>
                         </AddressHeadingContainer>
                         <AddressForm>
-                            <input className="cep" type="number" placeholder="CEP"/>
+                            <input id="cep" type="number" placeholder="CEP"/>
                             <input id="rua" type="text" placeholder="Rua"/>
                             <input id="numero" type="number" placeholder="Número"/>
                             <input id="complemento" type="text" placeholder="Complemento"/>
@@ -32,8 +54,8 @@ export function CheckoutForm() {
                             <input id="uf" type="text" placeholder="UF"/>
                         </AddressForm>
                     </AddressContainer>
-                    <div>
-                        <div>
+                    <PaymentContainer>
+                        <PaymentHeadingContainer>
                             <CurrencyDollar size={25} 
                                 color={theme.colors['purple-500']}
                             />
@@ -41,34 +63,47 @@ export function CheckoutForm() {
                                 <span>Pagamento</span>
                                 <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
                             </div>
-                        </div>
-                        <div>
-                            <button>cartao credito</button>
-                            <button>cartao debito</button>
-                            <button>pix</button>
-                        </div>
-                    </div>
+                        </PaymentHeadingContainer>
+                        <PaymentButtonsContainer>
+                            <button>
+                                <CreditCard size={20} color={theme.colors['purple-500']}/>
+                                <p>CARTÃO DE CRÉDITO</p>
+                            </button>
+                            <button>
+                                <Bank size={20} color={theme.colors['purple-500']}/>
+                                <p>CARTÃO DE DÉBITO</p>
+                            </button>
+                            <button>
+                                <Money size={20} color={theme.colors['purple-500']}/>
+                                <p>DINHEIRO</p>
+                            </button>
+                        </PaymentButtonsContainer>
+                    </PaymentContainer>
                </div>
                <div>
                     <span>Cafés selecionados</span>
-                    <div>
-                        <img src={cafeTradicional} alt="" />
-                        <div>
-                            <p>Expresso Tradicional</p>
+                    <InfoContainer>
+                        <CheckContainer>
                             <div>
-                                <CounterContainer>
-                                    <button>
-                                        <Minus size={14} />
-                                    </button>
-                                    <span>22</span>
-                                    <button>
-                                        <Plus size={14} />
-                                    </button>
-                                </CounterContainer>
-                                <Trash size={32} weight="thin" />
+                                <img src={cafeTradicional} alt="" width={64}/>
+                                <div>
+                                    <p>Expresso Tradicional</p>
+                                    <ButtonsCheckContainer>
+                                        <CounterContainer>
+                                            <button>
+                                                <Minus size={14} />
+                                            </button>
+                                            <span>22</span>
+                                            <button>
+                                                <Plus size={14} />
+                                            </button>
+                                        </CounterContainer>
+                                        <Trash size={32} weight="thin" />
+                                    </ButtonsCheckContainer>
+                                </div>
                             </div>
                             <span>R$ 9,90</span>
-                        </div>
+                        </CheckContainer>
                         <div>
                             <div>
                                 <p>Total de itens</p>
@@ -84,9 +119,9 @@ export function CheckoutForm() {
                             </div>
                             <button>Confirmar pedido</button>
                         </div>
-                    </div>
+                    </InfoContainer>
                </div>
            </FormContainer>
-        </section>
+        </CheckoutContainer>
     )
 }

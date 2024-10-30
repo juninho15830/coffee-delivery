@@ -1,13 +1,24 @@
 import styled from "styled-components";
 
+export const CheckoutContainer = styled.section`
+    margin: auto;
+    max-width: 72rem;
+`
+
 export const FormContainer = styled.form`
     display: flex;
     flex-wrap: wrap;
-    max-width: 72rem;
+    justify-content: center;
     width: 100%;
     margin: auto;
     padding: 0 1rem;
-    gap: 1.5rem;
+    gap: 2rem;
+
+    > div {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
 
     > div > span {
         font-family: "Baloo 2", sans-serif;
@@ -19,15 +30,14 @@ export const FormContainer = styled.form`
 export const AddressContainer = styled.div`
     display: flex;
     flex-direction: column;
-    max-width: 40rem;
     width: 100%;
+    max-width: 40rem;
     padding: 2.5rem;
-    margin-top: 0.5rem;
-    gap: 1rem;
+    gap: 2rem;
     background-color: ${({ theme }) => theme.colors['gray-200']};
     border-radius: 6px;
 
-    @media (max-width: 640px) {
+    @media (max-width: 680px) {
         padding: 1.5rem;
     }
 `
@@ -49,7 +59,7 @@ export const AddressForm = styled.div`
     "rua rua rua"
     "numero complemento complemento"
     "bairro cidade uf";
-  grid-template-columns: 12.5rem 1fr 3.5rem;
+  grid-template-columns: 14rem 16rem 3.5rem;
   gap: 1rem 1rem;
 
   #cep {
@@ -89,12 +99,13 @@ export const AddressForm = styled.div`
 
   input {
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.75rem;
+    font-size: 0.75rem;
     border: 1px solid ${({ theme }) => theme.colors['gray-400']};
     background-color: ${({ theme }) => theme.colors['gray-300']};
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: 680px) {
     display: grid;
     grid-template-areas:
         "cep uf"
@@ -148,4 +159,59 @@ export const CounterContainer = styled.div`
         align-items: center;
         color: ${({ theme }) => theme.colors['gray-800']};
     }
+`
+export const PaymentContainer = styled(AddressContainer)``
+
+export const PaymentHeadingContainer = styled(AddressHeadingContainer)``
+
+export const PaymentButtonsContainer = styled.div`
+    display: flex;
+    gap: 0.5rem;
+
+    > button {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 1rem;
+        font-size: 0.75rem;
+        border: none;
+        border-radius: 4px;
+        background-color: ${({ theme }) => theme.colors['gray-400']};
+
+        &:hover {
+            cursor: pointer;
+            background-color: ${({ theme }) => theme.colors['gray-500']};
+        }
+    }
+`
+
+export const InfoContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    max-width: 28rem;
+    padding: 2.5rem;
+    gap: 2rem;
+    background-color: ${({ theme }) => theme.colors['gray-200']};
+    border-radius: 6px;
+`
+
+export const CheckContainer = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    > div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    > div > div {
+        display: flex;
+        flex-direction: row;
+    }
+`
+
+export const ButtonsCheckContainer = styled.div`
 `
