@@ -122,7 +122,7 @@ export function CheckoutForm() {
                                 <span>Total</span>
                                 <span>R$ 33,60</span>
                             </div>
-                            <button>CONFIRMAR PEDIDO</button>
+                            <a href="/checkout/success">CONFIRMAR PEDIDO</a>
                         </ConfirmContainer>
                     </InfoContainer>
                </div>

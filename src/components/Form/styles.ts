@@ -263,7 +263,11 @@ export const ConfirmContainer = styled.div`
     font-weight: bold;
   }
 
-  button {
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
     font-size: 0.875rem;
     margin-top: 1rem;
     padding: 1rem;
@@ -274,8 +278,8 @@ export const ConfirmContainer = styled.div`
     transition: all 0.2s;
 
     &:hover {
-    cursor: pointer;
-    background-color: ${({ theme }) => theme.colors['yellow-900']};
-  }
+      cursor: pointer;
+      background-color: ${({ theme }) => theme.colors['yellow-900']};
+    }
   }
 `

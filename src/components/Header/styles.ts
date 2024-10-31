@@ -32,15 +32,14 @@ export const HeaderContainer = styled.header`
             gap: 0.25rem;
             color: ${props =>props.theme.colors['purple-500']};
             background-color: ${props =>props.theme.colors['purple-100']};
-            border: none;
+            border: solid 1px transparent;
             border-radius: 6px;
             height: 2.5rem;
-            transition: 0.4s;
+            transition: all 0.4s;
 
             &:hover {
                 cursor: pointer;
-                background-color: ${props =>props.theme.colors['purple-500']};
-                color: ${props =>props.theme.colors['purple-100']};
+                border: solid 1px ${props =>props.theme.colors['purple-500']};
             }
         }
     }
@@ -53,18 +52,10 @@ export const CartContainer = styled.a`
     height: 2.5rem;
     position: relative;
     transition: 0.4s;
+    border: solid 1px transparent;
 
     &:hover {
-        background-color: ${props =>props.theme.colors['yellow-900']};
-        color: ${props =>props.theme.colors['yellow-100']};
-
-        span {
-            color: ${props =>props.theme.colors['yellow-900']};
-            background-color: ${props =>props.theme.colors['yellow-100']};
-            transition: 0.4s;
-            border: solid 1px;
-            border-color:  ${props =>props.theme.colors['yellow-900']};;
-        }
+        border: solid 1px;
     }
 
     span {
