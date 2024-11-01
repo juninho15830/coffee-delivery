@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const CheckoutContainer = styled.section`
     margin: auto;
     max-width: 72rem;
+    margin-bottom: 2rem;
 `
 
 export const FormContainer = styled.form`
@@ -175,6 +176,7 @@ export const InfoContainer = styled.div`
 
 export const CheckContainer = styled.div`
     display: flex;
+    justify-content: space-between;
     align-items: top;
     gap: 3rem;
     border-bottom: 1px solid ${({ theme }) => theme.colors['gray-400']};
@@ -290,5 +292,11 @@ export const ConfirmContainer = styled.div`
       cursor: pointer;
       background-color: ${({ theme }) => theme.colors['yellow-900']};
     }
+  }
+`
+
+export const Teste = styled.div`
+  @media (max-width: 1133px) {
+    width: 40rem;
   }
 `

@@ -24,7 +24,8 @@ import {
     InfoContainer,
     PaymentButtonsContainer,
     PaymentContainer,
-    PaymentHeadingContainer 
+    PaymentHeadingContainer, 
+    Teste
 } from "./styles"
  
 export function Checkout() {
@@ -33,7 +34,7 @@ export function Checkout() {
     return (
         <CheckoutContainer>
            <FormContainer action="">
-               <div>
+               <Teste>
                     <span>Complete seu pedido</span>
                     <AddressContainer>
                         <AddressHeadingContainer>
@@ -81,8 +82,8 @@ export function Checkout() {
                             </button>
                         </PaymentButtonsContainer>
                     </PaymentContainer>
-               </div>
-               <div>
+               </Teste>
+               <Teste>
                     <span>Cafés selecionados</span>
                     <InfoContainer>
                         <CheckContainer>
@@ -125,7 +126,7 @@ export function Checkout() {
                             <a href="/checkout/success">CONFIRMAR PEDIDO</a>
                         </ConfirmContainer>
                     </InfoContainer>
-               </div>
+               </Teste>
            </FormContainer>
         </CheckoutContainer>
     )
