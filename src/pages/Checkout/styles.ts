@@ -317,7 +317,7 @@ export const ConfirmContainer = styled.div`
   }
 `
 
-export const Teste = styled.div`
+export const LayoutResponsiveContainer = styled.div`
   @media (max-width: 1133px) {
     width: 40rem;
   }

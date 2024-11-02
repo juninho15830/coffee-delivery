@@ -28,10 +28,10 @@ import {
     ErrorMessage,
     FormContainer,
     InfoContainer,
+    LayoutResponsiveContainer,
     PaymentButtonsContainer,
     PaymentContainer,
     PaymentHeadingContainer, 
-    Teste
 } from "./styles"
 
 const newBuyFormValidationSchema = zod.object({
@@ -62,8 +62,10 @@ export function Checkout() {
     return (
         <CheckoutContainer>
            <FormContainer onSubmit={handleSubmit(handleCreateNewBuy)} action="">
-               <Teste>
+
+               <LayoutResponsiveContainer>
                     <span>Complete seu pedido</span>
+
                     <AddressContainer>
                         <AddressHeadingContainer>
                             <MapPinLine 
@@ -139,6 +141,7 @@ export function Checkout() {
                             </div>
                         </AddressForm>
                     </AddressContainer>
+
                     <PaymentContainer>
                         <PaymentHeadingContainer>
                             <CurrencyDollar size={25} 
@@ -188,8 +191,9 @@ export function Checkout() {
                         </PaymentButtonsContainer>
                         {errors.paymentMethod && <ErrorMessage>{errors.paymentMethod.message}</ErrorMessage>}
                     </PaymentContainer>
-               </Teste>
-               <Teste>
+               </LayoutResponsiveContainer>
+
+               <LayoutResponsiveContainer>
                     <span>Cafés selecionados</span>
                     <InfoContainer>
                         <CheckContainer>
@@ -232,7 +236,7 @@ export function Checkout() {
                             <button type="submit">CONFIRMAR PEDIDO</button>
                         </ConfirmContainer>
                     </InfoContainer>
-               </Teste>
+               </LayoutResponsiveContainer>
            </FormContainer>
         </CheckoutContainer>
     )
