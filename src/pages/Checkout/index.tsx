@@ -1,5 +1,9 @@
 import cafeTradicional from "/images/coffees/expresso.png"
 import { useTheme } from "styled-components"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import * as zod from "zod"
+
 import {
     Bank,
     CreditCard,
@@ -10,6 +14,7 @@ import {
     Plus,
     Trash
 } from "@phosphor-icons/react"
+
 import { 
     AddressContainer,
     AddressForm,
@@ -20,6 +25,7 @@ import {
     CheckoutContainer,
     ConfirmContainer,
     CounterContainer,
+    ErrorMessage,
     FormContainer,
     InfoContainer,
     PaymentButtonsContainer,
@@ -27,13 +33,35 @@ import {
     PaymentHeadingContainer, 
     Teste
 } from "./styles"
+
+const newBuyFormValidationSchema = zod.object({
+    cep: zod.number().min(1, 'CEP inválido'),
+    road: zod.string().min(1, 'Prencha o campo Rua'),
+    number: zod.string().min(1, 'Número inválido'),
+    complement: zod.string().optional(),
+    neighborhood: zod.string().min(1, 'Prencha o campo Bairro'),
+    city: zod.string().min(1, 'Prencha o campo Cidade'),
+    state: zod.string().min(1, 'Prencha o campo UF'),
+    paymentMethod: zod.enum(['credit', 'debit', 'cash'], {
+        invalid_type_error: 'Informe um método de pagamento',
+    }),
+})
+
+type NewBuyFormData = zod.infer<typeof newBuyFormValidationSchema>
  
 export function Checkout() {
     const theme = useTheme()
+    const { register, handleSubmit, formState: { errors } } = useForm<NewBuyFormData>({
+        resolver: zodResolver(newBuyFormValidationSchema), 
+    })
+
+    function handleCreateNewBuy(data: NewBuyFormData) {
+        console.log(data)
+    }
 
     return (
         <CheckoutContainer>
-           <FormContainer action="">
+           <FormContainer onSubmit={handleSubmit(handleCreateNewBuy)} action="">
                <Teste>
                     <span>Complete seu pedido</span>
                     <AddressContainer>
@@ -48,13 +76,67 @@ export function Checkout() {
                             </div>
                         </AddressHeadingContainer>
                         <AddressForm>
-                            <input id="cep" type="number" placeholder="CEP"/>
-                            <input id="rua" type="text" placeholder="Rua"/>
-                            <input id="numero" type="number" placeholder="Número"/>
-                            <input id="complemento" type="text" placeholder="Complemento"/>
-                            <input id="bairro" type="text" placeholder="Bairro"/>
-                            <input id="cidade" type="text" placeholder="Cidade"/>
-                            <input id="uf" type="text" placeholder="UF"/>
+                            <div id="cep">
+                                <input
+                                    type="number"
+                                    placeholder="CEP"
+                                    {...register('cep', { valueAsNumber: true })}
+                                    style={{ borderColor: errors.cep ? 'red' : '' }}
+                                />
+                                {errors.cep && <ErrorMessage>{errors.cep.message}</ErrorMessage>}
+                            </div>
+                            <div id="road">
+                                <input
+                                    type="text"
+                                    placeholder="Rua"
+                                    {...register('road')}
+                                    style={{ borderColor: errors.road ? 'red' : undefined }}
+                                />
+                                {errors.road && <ErrorMessage>{errors.road.message}</ErrorMessage>}
+                            </div>
+                            <div id="number">
+                                <input
+                                    type="text"
+                                    placeholder="Número"
+                                    {...register('number')}
+                                    style={{ borderColor: errors.number ? 'red' : undefined }}
+                                />
+                                {errors.number && <ErrorMessage>{errors.number.message}</ErrorMessage>}
+                            </div>
+                            <div id="complement">
+                                <input
+                                    type="text"
+                                    placeholder="Complemento (Opcional)"
+                                    {...register('complement')}
+                                />
+                            </div>
+                            <div id="neighborhood">
+                                <input
+                                    type="text"
+                                    placeholder="Bairro"
+                                    {...register('neighborhood')}
+                                    style={{ borderColor: errors.neighborhood ? 'red' : undefined }}
+                                />
+                                {errors.neighborhood && <ErrorMessage>{errors.neighborhood.message}</ErrorMessage>}
+                            </div>
+                            <div id="city">
+                                <input
+                                    type="text"
+                                    placeholder="Cidade"
+                                    {...register('city')}
+                                    style={{ borderColor: errors.city ? 'red' : undefined }}
+                                />
+                                {errors.city && <ErrorMessage>{errors.city.message}</ErrorMessage>}
+                            </div>
+                            <div id="state">
+                                <input
+                                    type="text"
+                                    placeholder="UF"
+                                    {...register('state')}
+                                    style={{ borderColor: errors.state ? 'red' : undefined }}
+                                />
+                                {errors.state && <ErrorMessage>{errors.state.message}</ErrorMessage>}
+                            </div>
                         </AddressForm>
                     </AddressContainer>
                     <PaymentContainer>
@@ -67,20 +149,44 @@ export function Checkout() {
                                 <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
                             </div>
                         </PaymentHeadingContainer>
+                        
                         <PaymentButtonsContainer>
-                            <button>
+                            <input 
+                                type="radio"
+                                {...register('paymentMethod')}
+                                value="credit"
+                                id="credit"
+                            />
+                            <label htmlFor="credit">
                                 <CreditCard size={20} color={theme.colors['purple-500']}/>
                                 <span>CARTÃO DE CRÉDITO</span>
-                            </button>
-                            <button>
-                                <Bank size={20} color={theme.colors['purple-500']}/>
+                            </label>
+
+                            <input
+                                type="radio"
+                                {...register('paymentMethod')}
+                                value="debit"
+                                id="debit"
+                            />
+                            <label htmlFor="debit">
+                                <Bank
+                                    size={20}color={theme.colors['purple-500']}/>
                                 <span>CARTÃO DE DÉBITO</span>
-                            </button>
-                            <button>
+                            </label>
+
+                            <input
+                                type="radio"
+                                {...register('paymentMethod')}
+                                value="cash"
+                                id="cash"
+                            />
+                            <label htmlFor="cash">
                                 <Money size={20} color={theme.colors['purple-500']}/>
                                 <span>DINHEIRO</span>
-                            </button>
+                            </label>
+                            
                         </PaymentButtonsContainer>
+                        {errors.paymentMethod && <ErrorMessage>{errors.paymentMethod.message}</ErrorMessage>}
                     </PaymentContainer>
                </Teste>
                <Teste>
@@ -123,7 +229,7 @@ export function Checkout() {
                                 <span>Total</span>
                                 <span>R$ 33,60</span>
                             </div>
-                            <a href="/checkout/success">CONFIRMAR PEDIDO</a>
+                            <button type="submit">CONFIRMAR PEDIDO</button>
                         </ConfirmContainer>
                     </InfoContainer>
                </Teste>

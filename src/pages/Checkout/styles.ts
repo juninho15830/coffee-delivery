@@ -68,32 +68,32 @@ export const AddressForm = styled.div`
     width: 100%;
   }
 
-  #rua {
+  #road {
     grid-area: rua;
     width: 100%;
   }
 
-  #numero {
+  #number {
     grid-area: numero;
     width: 100%;
   }
 
-  #complemento {
+  #complement {
     grid-area: complemento;
     width: 100%;
   }
 
-  #bairro {
+  #neighborhood {
     grid-area: bairro;
     width: 100%;
   }
 
-  #cidade {
+  #city {
     grid-area: cidade;
     width: 100%;
   }
 
-  #uf {
+  #state {
     grid-area: uf;
     width: 100%;
   }
@@ -104,6 +104,11 @@ export const AddressForm = styled.div`
     font-size: 0.75rem;
     border: 1px solid ${({ theme }) => theme.colors['gray-400']};
     background-color: ${({ theme }) => theme.colors['gray-300']};
+
+    &:focus {
+      outline: none;
+      border-color: ${({ theme }) => theme.colors['purple-500']};
+    }
   }
 
   @media (max-width: 680px) {
@@ -125,6 +130,11 @@ export const AddressForm = styled.div`
     gap: 0.75rem;
   }
 `
+export const ErrorMessage = styled.p`
+  font-size: 0.75rem;
+  color: red;
+  margin: 0; 
+`
 
 export const PaymentContainer = styled(AddressContainer)``
 
@@ -134,7 +144,16 @@ export const PaymentButtonsContainer = styled.div`
     display: flex;
     gap: 0.5rem;
 
-    > button {
+    input {
+      display: none;
+    }
+
+    input:checked + label {
+      background-color: ${({ theme }) => theme.colors['purple-100']};
+      border-color: ${({ theme }) => theme.colors['purple-500']};
+    }
+
+    > label {
         display: flex;
         gap: 0.5rem;
         justify-content: center;
@@ -147,11 +166,14 @@ export const PaymentButtonsContainer = styled.div`
         background-color: ${({ theme }) => theme.colors['gray-400']};
         transition: all 0.2s;
 
+        
+
         &:hover {
             cursor: pointer;
-            background-color: ${({ theme }) => theme.colors['purple-100']};
             border: solid 1px ${({ theme }) => theme.colors['purple-500']};
         }
+
+        
     }
 `
 
@@ -274,7 +296,7 @@ export const ConfirmContainer = styled.div`
     font-weight: bold;
   }
 
-  a {
+  button {
     display: flex;
     align-items: center;
     justify-content: center;
