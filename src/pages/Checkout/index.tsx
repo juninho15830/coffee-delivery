@@ -77,6 +77,7 @@ export function Checkout() {
                                 <p>Informe o endereço onde deseja receber seu pedido</p>
                             </div>
                         </AddressHeadingContainer>
+
                         <AddressForm>
                             <div id="cep">
                                 <input
@@ -87,6 +88,7 @@ export function Checkout() {
                                 />
                                 {errors.cep && <ErrorMessage>{errors.cep.message}</ErrorMessage>}
                             </div>
+
                             <div id="road">
                                 <input
                                     type="text"
@@ -96,6 +98,7 @@ export function Checkout() {
                                 />
                                 {errors.road && <ErrorMessage>{errors.road.message}</ErrorMessage>}
                             </div>
+
                             <div id="number">
                                 <input
                                     type="text"
@@ -105,6 +108,7 @@ export function Checkout() {
                                 />
                                 {errors.number && <ErrorMessage>{errors.number.message}</ErrorMessage>}
                             </div>
+
                             <div id="complement">
                                 <input
                                     type="text"
@@ -112,6 +116,7 @@ export function Checkout() {
                                     {...register('complement')}
                                 />
                             </div>
+
                             <div id="neighborhood">
                                 <input
                                     type="text"
@@ -121,6 +126,7 @@ export function Checkout() {
                                 />
                                 {errors.neighborhood && <ErrorMessage>{errors.neighborhood.message}</ErrorMessage>}
                             </div>
+
                             <div id="city">
                                 <input
                                     type="text"
@@ -130,6 +136,7 @@ export function Checkout() {
                                 />
                                 {errors.city && <ErrorMessage>{errors.city.message}</ErrorMessage>}
                             </div>
+
                             <div id="state">
                                 <input
                                     type="text"
@@ -195,6 +202,7 @@ export function Checkout() {
 
                <LayoutResponsiveContainer>
                     <span>Cafés selecionados</span>
+
                     <InfoContainer>
                         <CheckContainer>
                             <div>
@@ -211,6 +219,7 @@ export function Checkout() {
                                                 <Plus size={14} />
                                             </button>
                                         </CounterContainer>
+                                        
                                         <ButtonRemoverContainer>
                                             <Trash size={16} color={theme.colors['purple-500']}/>
                                             <span>REMOVER</span>
