@@ -15,14 +15,15 @@ type CoffeesProps = {
 
 export function Cards({ coffee }: CoffeesProps) {
   const [count, setCount] = useState(1);
+  const [isItemAdded, setIsItemAdded] = useState(false)
 
   function handleIncrement() {
     setCount(count + 1);
-  };
+  }
 
   function handleDecrement() {
     setCount(count > 1 ? count - 1 : 1);
-  };
+  }
 
   return (
     <CardContainer>
