@@ -34,7 +34,7 @@ import {
     PaymentHeadingContainer, 
 } from "./styles"
 
-const newBuyFormValidationSchema = zod.object({
+const newBuyValidationSchema = zod.object({
     cep: zod.number().min(1, 'CEP inválido'),
     road: zod.string().min(1, 'Prencha o campo Rua'),
     number: zod.string().min(1, 'Número inválido'),
@@ -47,12 +47,12 @@ const newBuyFormValidationSchema = zod.object({
     }),
 })
 
-type NewBuyFormData = zod.infer<typeof newBuyFormValidationSchema>
+type NewBuyFormData = zod.infer<typeof newBuyValidationSchema>
  
 export function Checkout() {
     const theme = useTheme()
     const { register, handleSubmit, formState: { errors } } = useForm<NewBuyFormData>({
-        resolver: zodResolver(newBuyFormValidationSchema), 
+        resolver: zodResolver(newBuyValidationSchema), 
     })
 
     function handleCreateNewBuy(data: NewBuyFormData) {
@@ -84,7 +84,7 @@ export function Checkout() {
                                     type="number"
                                     placeholder="CEP"
                                     {...register('cep', { valueAsNumber: true })}
-                                    style={{ borderColor: errors.cep ? 'red' : '' }}
+                                    style={{ borderColor: errors.cep ? 'red' : undefined }}
                                 />
                                 {errors.cep && <ErrorMessage>{errors.cep.message}</ErrorMessage>}
                             </div>
