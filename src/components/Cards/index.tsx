@@ -13,17 +13,39 @@ type CoffeesProps = {
   };
 };
 
+interface NewItem {
+  id: string;
+  title: string;
+  price: number;
+  image: string;
+  totalItems: number;
+}
+
 export function Cards({ coffee }: CoffeesProps) {
   const [count, setCount] = useState(1);
-  const [isItemAdded, setIsItemAdded] = useState(false)
+  const [addItem, setAddItem] = useState<NewItem[]>([])
 
   function handleIncrement() {
-    setCount(count + 1);
+    setCount((state) => state  + 1);
   }
 
   function handleDecrement() {
-    setCount(count > 1 ? count - 1 : 1);
+    setCount((state) => state > 1 ? count - 1 : 1);
   }
+
+  function handleAddNewItem() {
+    const newItem: NewItem = {
+      id: String(new Date().getTime()),
+      title: coffee.title,
+      price: coffee.price * count,
+      image: coffee.image,
+      totalItems: count,
+    }
+
+    setAddItem((state) => [...state, newItem])
+  }
+
+  console.log(addItem)
 
   return (
     <CardContainer>
@@ -51,7 +73,7 @@ export function Cards({ coffee }: CoffeesProps) {
               <Plus size={14} />
             </button>
           </CounterContainer>
-          <button title="Adicionar ao carrinho">
+          <button onClick={handleAddNewItem} title="Adicionar ao carrinho">
             <ShoppingCart size={22} weight="fill" />
           </button>
         </div>

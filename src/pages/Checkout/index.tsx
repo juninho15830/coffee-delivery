@@ -33,35 +33,69 @@ import {
     PaymentContainer,
     PaymentHeadingContainer, 
 } from "./styles"
+import { useState } from "react"
 
 const newBuyValidationSchema = zod.object({
-    cep: zod.number().min(1, 'CEP inválido'),
+    cep: zod.number({
+        invalid_type_error: "Preencha o campo CEP com um número válido",
+    }),
     road: zod.string().min(1, 'Prencha o campo Rua'),
     number: zod.string().min(1, 'Número inválido'),
     complement: zod.string().optional(),
     neighborhood: zod.string().min(1, 'Prencha o campo Bairro'),
     city: zod.string().min(1, 'Prencha o campo Cidade'),
-    state: zod.string().min(1, 'Prencha o campo UF'),
+    uf: zod.string().min(1, 'Prencha o campo UF').max(2),
     paymentMethod: zod.enum(['credit', 'debit', 'cash'], {
         invalid_type_error: 'Informe um método de pagamento',
     }),
 })
 
-type NewBuyFormData = zod.infer<typeof newBuyValidationSchema>
+type OrderFormData = zod.infer<typeof newBuyValidationSchema>
  
+interface Order {
+    road: string;
+    number: string,
+    neighborhood: string,
+    paymentMethod: string
+}
+
 export function Checkout() {
-    const theme = useTheme()
-    const { register, handleSubmit, formState: { errors } } = useForm<NewBuyFormData>({
-        resolver: zodResolver(newBuyValidationSchema), 
+    const [order, setOrder] = useState<Order>({
+        road: '',
+        number: '',
+        neighborhood: '',
+        paymentMethod: '',
     })
 
-    function handleCreateNewBuy(data: NewBuyFormData) {
-        console.log(data)
+    const theme = useTheme()
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<OrderFormData>({
+        resolver: zodResolver(newBuyValidationSchema), 
+        defaultValues: {
+            city: '',
+            complement: '',
+            neighborhood: '',
+            number: '',
+            road: '',
+            paymentMethod: 'credit',
+            uf: '',
+        }
+    })
+
+    function handleCreateOrder(data: OrderFormData) {
+        const newOrder: Order = {
+            road: data.road,
+            number: data.number,
+            neighborhood: data.neighborhood,
+            paymentMethod: data.paymentMethod,
+        }
+
+        setOrder(newOrder)
+        reset()
     }
 
     return (
         <CheckoutContainer>
-           <FormContainer onSubmit={handleSubmit(handleCreateNewBuy)} action="">
+           <FormContainer onSubmit={handleSubmit(handleCreateOrder)} action="">
 
                <LayoutResponsiveContainer>
                     <span>Complete seu pedido</span>
@@ -83,6 +117,7 @@ export function Checkout() {
                                 <input
                                     type="number"
                                     placeholder="CEP"
+                                    
                                     {...register('cep', { valueAsNumber: true })}
                                     style={{ borderColor: errors.cep ? 'red' : undefined }}
                                 />
@@ -137,14 +172,15 @@ export function Checkout() {
                                 {errors.city && <ErrorMessage>{errors.city.message}</ErrorMessage>}
                             </div>
 
-                            <div id="state">
+                            <div id="uf">
                                 <input
                                     type="text"
                                     placeholder="UF"
-                                    {...register('state')}
-                                    style={{ borderColor: errors.state ? 'red' : undefined }}
+                                    {...register('uf')}
+                                    style={{ borderColor: errors.uf ? 'red' : undefined, textTransform: "uppercase" }}
+                                    maxLength={2}
                                 />
-                                {errors.state && <ErrorMessage>{errors.state.message}</ErrorMessage>}
+                                {errors.uf && <ErrorMessage>{errors.uf.message}</ErrorMessage>}
                             </div>
                         </AddressForm>
                     </AddressContainer>
@@ -247,6 +283,10 @@ export function Checkout() {
                     </InfoContainer>
                </LayoutResponsiveContainer>
            </FormContainer>
+
+           <pre>
+                {JSON.stringify(order, null, 2)}
+            </pre>
         </CheckoutContainer>
     )
 }

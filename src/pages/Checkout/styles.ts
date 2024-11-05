@@ -63,6 +63,15 @@ export const AddressForm = styled.div`
   grid-template-columns: 14rem 15rem 3.5rem;
   gap: 1rem 1rem;
 
+  input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+  }
+  input[type=number] { 
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+
   #cep {
     grid-area: cep;
     width: 100%;
@@ -93,7 +102,7 @@ export const AddressForm = styled.div`
     width: 100%;
   }
 
-  #state {
+  #uf {
     grid-area: uf;
     width: 100%;
   }
