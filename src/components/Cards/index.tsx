@@ -24,6 +24,7 @@ interface NewItem {
 export function Cards({ coffee }: CoffeesProps) {
   const [count, setCount] = useState(1);
   const [addItem, setAddItem] = useState<NewItem[]>([])
+  const [list, setList] = useState()
 
   function handleIncrement() {
     setCount((state) => state  + 1);
