@@ -79,6 +79,9 @@ export function Cards({ coffee }: CoffeesProps) {
           </button>
         </div>
       </ControlContainer>
+      <pre>
+                {JSON.stringify(addItem, null, 2)}
+            </pre>
     </CardContainer>
   );
 }
